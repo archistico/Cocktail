@@ -25,7 +25,7 @@ Una scheda si elimina solo se rappresenta **la medesima formula** per ingredient
 ## Passaggi tecnici obbligatori
 
 1. Modificare `data/cocktails.json`.
-2. Rigenerare `data/catalog.js`, CSV del catalogo, audit JSON/CSV, export regionale e `data/ingredienti.json` quando necessario.
+2. Aggiornare `data/catalog.js`, CSV del catalogo, audit CSV, export regionale e `data/ingredienti.json` quando necessario.
 3. Verificare ID univoci, assenza di duplicati case/accenti, coerenza di `dosi`/ingredienti e compatibilità degli alias.
 4. Eseguire tutti i test:
 
@@ -36,6 +36,6 @@ python tests/test_sinonimi.py
 node tests/test_ui.js
 ```
 
-5. Preparare ZIP dei soli file operativi, con audit e istruzioni per proseguire.
+5. Preparare un archivio dei soli file necessari, conservando l’audit CSV e le istruzioni per proseguire.
 
 **Nota:** la versione 3.6 conferma il Baxeichito genovese usando fonti locali e una tecnica praticabile ricostruita dall'articolo sul Mojito. Non pretende di conoscere una procedura interna non pubblicata dal locale.

@@ -23,7 +23,7 @@ for r in a:
  assert set(y for vs in r.get('gruppiAlternativiGuarnizione',[]) for y in vs)<=set(r['guarnizione'])
 assert set(json.loads((p/'data/ingredienti.json').read_text('utf8')))==base
 assert d['meta']['ingredienti']==433
-assert len(json.loads((p/'data/audit_ricette.json').read_text('utf8')))==530
+# Una sola copia dell'audit: CSV con priorità e criticità delle ricette
 with (p/'data/cocktails.csv').open(encoding='utf-8-sig',newline='') as f:assert len(list(csv.DictReader(f,delimiter=';')))==530
 with (p/'data/audit_ricette.csv').open(encoding='utf-8-sig',newline='') as f:assert len(list(csv.DictReader(f,delimiter=';')))==530
 assert len({r['nome'] for r in a})==len(a)

@@ -1,32 +1,33 @@
-# Cocktail Mood 3.6 — archivio operativo pulito
+# Cocktail Mood 🍸
 
-**Data:** 22 ottobre 2026. Versione di riferimento unica.
+**Il cocktail giusto parte da ciò che ti piace — o da quello che hai in casa.**
 
-- **530** ricette distinte: 102 IBA, 428 Extra; **518 verificate**, 6 parziali e 6 non verificate.
-- **433** ingredienti base; **474** chip unici includendo guarnizioni e alternative.
-- Ricerca `Peach brandy` → **Brandy alla pesca** (senza fondere liquore/schnapps alla pesca). Ricetta IBA del *Missionary's Downfall* aggiornata, dose 15 ml conservata.
-- **Caffè di Rüdesheim** e **Rüdesheimer Kaffee** condividono una scheda; alias nominali e ID storico mantenuti.
-- Audit e export senza nomi versione obsoleti: `data/audit_ricette.csv`, `data/audit_ricette.json`.
+Cocktail Mood è un catalogo di ricette da esplorare per ingredienti, gusti e provenienza: dai grandi classici agli aperitivi regionali italiani, fino alle specialità del mondo.
 
-## Avvio
+**Scopri Cocktail Mood online:** [archistico.github.io/Cocktail/](https://archistico.github.io/Cocktail/)
 
-Aprire `index.html` anche offline. La fonte canonica è `data/cocktails.json`; `data/catalog.js` è la copia per l'app. Non modificare l'una senza sincronizzare l'altra.
+## Cosa puoi fare
 
-## File
+Scegli gli ingredienti che preferisci oppure quelli che hai già in dispensa e scopri cosa preparare. Cerca per nome, esplora le collezioni e filtra per cocktail IBA, analcolici, Paese o regione italiana. Ogni scheda presenta ingredienti, dosi, preparazione e guarnizioni, quando disponibili.
 
-- `index.html`, `css/stile.css`, `js/app.js`: interfaccia.
-- `data/cocktails.json`, `catalog.js`: catalogo.
-- `data/alias_ingredienti.json`, `alias_id_ricette.json`: sinonimi e ID precedenti.
-- `data/ingredienti.json`, `regioni.json`: elenchi di supporto.
-- `data/cocktails.csv`, `cocktail_regionali.csv`, `audit_ricette.csv`, `audit_ricette.json`: esportazioni correnti.
-- `METODO_VERIFICA.md`, `STATO_VERIFICA.md`, `AUDIT_CONSOLIDATO.md`, `RIPRESA_PROSSIMA_CHAT.md`: documentazione corrente.
-- `tests/*`: regressioni automatiche.
+## Il catalogo in numeri
 
-## Test
+| | |
+|---|---:|
+| **Ricette** | **530** (102 IBA, 428 altre) |
+| **Ricette analcoliche** | 29 |
+| **Specialità legate alle regioni italiane** | 57, da 20 regioni |
+| **Paesi rappresentati** | 36 |
+| **Collezioni tematiche** | 26 |
+| **Ingredienti di base** | 433 |
+| **Voci selezionabili, guarnizioni comprese** | 474 |
 
-```sh
-python tests/verifica_catalogo.py
-python tests/test_regressioni.py
-python tests/test_sinonimi.py
-node tests/test_ui.js
-```
+## Ricette e fonti
+
+**518 ricette** sono state confrontate con fonti individuate; **6** hanno una verifica parziale e **6** richiedono ancora conferma. Dove esistono più varianti, la scheda distingue la formula scelta e segnala le incertezze.
+
+**Cocktail Mood è consultabile gratuitamente, senza registrazione, anche offline.**
+
+## Anteprima
+
+![Screenshot di Cocktail Mood: ricerca per ingredienti, filtri e ricette](assets/screenshotcocktail.png)

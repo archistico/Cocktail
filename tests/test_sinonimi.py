@@ -35,6 +35,6 @@ for canonical,variants in d['aliasIngredienti'].items():
  for v in variants:rev[normal('NFKC',v.casefold())].add(canonical)
 assert not any(len(names)>1 for names in rev.values()),[i for i in rev.items() if len(i[1])>1]
 assert len(base)==433 and len(selectable)==474
-assert json.loads((p/'data/audit_ricette.json').read_text('utf8'))==list(csv.DictReader((p/'data/audit_ricette.csv').open(encoding='utf-8-sig',newline=''),delimiter=';'))
+assert {x['id'] for x in csv.DictReader((p/'data/audit_ricette.csv').open(encoding='utf-8-sig',newline=''),delimiter=';')}==set(ids), 'audit CSV completo e coerente'
 assert 'Rüdesheimer Kaffee' in ids['tipsy-caffe-di-rudesheim']['nomiAlternativi']
-print('OK sinonimi v3.6: brandy pesca, alias unico, caffè di Rüdesheim, CSV e JSON audit')
+print('OK sinonimi v3.6: brandy pesca, alias unico, caffè di Rüdesheim, audit CSV unico')

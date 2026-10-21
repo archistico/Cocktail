@@ -55,7 +55,7 @@ assert sum(x['stato_verifica_2026_10_21']=='confronto_parziale' for x in rows)==
 assert sum(x['stato_verifica_2026_10_21']=='non_verificata' for x in rows)==6
 assert sum(x['priorita']=='ALTA' and x['stato_verifica_2026_10_21']!='confrontata_con_fonte_originale' for x in rows)==10
 assert {x['id'] for x in rows if x['stato_verifica_2026_10_21']=='confronto_parziale'}<=partial
-assert json.loads((r/'data/audit_ricette.json').read_text('utf-8'))==[{k:r[k] for k in rows[0]} for r in rows]
+assert {x['id'] for x in rows}==set(by), 'audit CSV allineato agli ID del catalogo'
 with (r/'data/cocktails.csv').open(encoding='utf-8-sig',newline='') as f: cr=list(csv.DictReader(f,delimiter=';'))
 assert len(cr)==530
 for id in new:

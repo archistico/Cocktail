@@ -10,3 +10,6 @@
 .garnish-chip{border-style:dashed;border-color:#b49ac2;background:#f9f4fd}.garnish-ing{background:#f5ecfa;color:#74528e;border:1px dashed #cdb8d8}.optional-ing{background:#ecf5f1;color:#527a67}
 
 .tag.verified{background:#e8f1ed;color:#375a47}
+
+/* Crediti del progetto */
+footer .footer-credit{margin:18px 0 0;padding-top:14px;border-top:1px solid #e8e1e7;color:#5f4876;font-weight:650;letter-spacing:.01em}
