@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#1c1233">
+  <meta name="description" content="Scegli gli ingredienti desiderati o disponibili e scopri i cocktail che li utilizzano: IBA, tradizioni italiane e ricette tipiche di altri Paesi.">
+  <title>Cocktail Mood — Scegli gli ingredienti, trova il cocktail</title>
+  <link rel="stylesheet" href="css/stile.css">
+  <script src="data/catalog.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="header"><a class="brand" href="./"><span class="brand-mark">◈</span> Cocktail <b>Mood</b></a><div class="smallheader">Ricerca per ingredienti · Nessun account richiesto</div></header>
+    <section class="hero" aria-label="Introduzione">
+      <div><p class="eyebrow">IL TUO APERITIVO, I TUOI GUSTI</p><h1>Qual è il tuo<br><em>cocktail ideale?</em></h1><p class="hero-sub">Scegli ciò che ti piace, oppure indica cosa hai in casa. Ti mostriamo ricette compatibili, dai classici IBA agli aperitivi regionali italiani e alle specialità locali di tutto il mondo. Esplora le collezioni per Paese, epoca e ingredienti: dalla Poncha di Madeira al Somaek coreano.</p><div class="hero-counts"><span><b id="totalCocktails">—</b> cocktail</span><span><b id="totalIba">—</b> IBA</span><span><b id="totalIngredients">—</b> ingredienti</span><span><b id="totalRegional">—</b> specialità locali</span></div></div>
+      <div class="glass-art" aria-hidden="true"><div class="straw"></div><div class="glass"><div class="juice"></div><div class="ice one"></div><div class="ice two"></div></div><div class="base"></div><div class="spark a">✦</div><div class="spark b">✧</div><div class="spark c">✳</div></div>
+    </section>
+    <main>
+      <div class="topline"><h2>1. Come vuoi cercare?</h2><p>Puoi cambiare modalità senza perdere le selezioni.</p></div>
+      <div class="switchmode" role="group" aria-label="Modalità di ricerca"><button id="modeDesidero" class="mode active" type="button" aria-pressed="true">♥ Mi piacciono questi ingredienti <span>Il cocktail deve contenerli tutti</span></button><button id="modeDispensa" class="mode" type="button" aria-pressed="false">⌂ Ho questi ingredienti <span>Mostra cosa posso preparare</span></button></div>
+      <section class="ingredients-section" aria-labelledby="ingredientHeading">
+        <div class="topline"><h2 id="ingredientHeading">2. Scegli gli ingredienti</h2><button type="button" id="clear" class="text-button" title="Annulla tutti gli ingredienti e ripristina ogni filtro">Svuota tutto</button></div>
+        <div class="search-controls"><label class="searchbox"><span aria-hidden="true">⌕</span><input id="ingredientSearch" type="search" placeholder="Cerca mirto, genepì, chinotto, prosecco…" autocomplete="off" aria-label="Cerca un ingrediente"></label><label class="selectbox">Categoria <select id="ingredientCategory"><option value="tutti">Tutti gli ingredienti</option><option value="distillati">Distillati e vini</option><option value="liquori">Liquori e aperitivi</option><option value="succhi">Succhi e frutta</option><option value="mixers">Bibite e mixer</option><option value="sciroppi">Sciroppi e dolcificanti</option><option value="altro">Erbe, spezie e altri</option></select></label></div>
+        <div class="selection-line"><div id="selected" class="selected"><span class="muted">Nessun ingrediente selezionato</span></div></div>
+        <div class="ingredient-list" id="ingredientList" aria-label="Ingredienti selezionabili"></div>
+        <p class="mini-help" id="modeHelp">Un ingrediente aggiunto deve essere presente nella ricetta. Le guarnizioni sono cercabili: non sono obbligatorie per la preparazione.</p>
+      </section>
+      <section class="results" aria-labelledby="resultHeading">
+        <div class="topline"><div><p class="eyebrow dark">LE TUE CORRISPONDENZE</p><h2 id="resultHeading"><span id="count">—</span> cocktail trovati</h2></div><label class="searchbox name-search"><span aria-hidden="true">⌕</span><input id="nameSearch" type="search" placeholder="Cerca per nome…" autocomplete="off" aria-label="Cerca cocktail per nome"></label></div>
+        <div class="result-options"><label><input type="checkbox" id="onlyIba"> Solo IBA</label><label><input type="checkbox" id="onlyAlcoholFree"> Solo analcolici</label><label><input type="checkbox" id="onlyVerified"> Solo ricette ricontrollate</label><label><input type="checkbox" id="onlyLocal"> Solo specialità locali</label><label><input type="checkbox" id="onlyTraditional"> Escludi reinterpretazioni moderne</label><label class="selectbox region-select">Regione <select id="regionFilter" aria-label="Filtra per regione"><option value="tutte">Tutte le regioni</option></select></label><label class="selectbox region-select">Paese <select id="countryFilter" aria-label="Filtra per paese"><option value="tutti">Tutti i paesi</option></select></label><label class="selectbox region-select">Collezione <select id="collectionFilter" aria-label="Filtra per collezione"><option value="tutte">Tutte le collezioni</option></select></label><label id="missingLabel" class="hidden">Mancanti ammessi <select id="missingLimit"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></label></div>
+        <p class="region-explainer">📍 Il filtro «Solo specialità locali» include tradizioni e creazioni documentate di Italia e altri Paesi. «Regione» si riferisce esclusivamente alle regioni italiane, «Paese» consente di scoprire le ricette estere. Alcune specialità, come Bicerin e Caffè leccese, sono bevande tradizionali. Il filtro «Paese» segue la classificazione della fonte: non sempre coincide con il luogo d’invenzione; le ricette vecchie senza paese assegnato restano disponibili con «Tutti i paesi». Le collezioni navigabili comprendono almeno 10 ricette; il menu mostra il numero di cocktail in ciascuna.</p><div id="status" class="status" role="status" aria-live="polite"></div>
+        <div class="cards" id="cards"></div>
+        <div class="more-wrap"><button id="loadMore" type="button" class="more hidden">Mostra altri cocktail ↓</button></div>
+      </section>
+    </main>
+    <footer><p><strong>Cocktail Mood</strong> · Catalogo statico dimostrativo con fonti, provenienza regionale e collezioni internazionali. Dati IBA e integrazioni editoriali: consultare le fonti nelle singole schede. Ingredienti facoltativi e guarnizioni distinti e ricercabili; le guarnizioni non sono obbligatorie. Il ghiaccio non è indicizzato. Le composizioni con la dicitura «da verificare» necessitano di controllo prima di una pubblicazione definitiva.</p><p>Per le ricette complete e le modalità di preparazione, consulta le fonti originali. Consumo responsabile.</p></footer>
+  </div>
+</body>
+</html>
